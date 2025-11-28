@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        
+        <div class="game-info">
+            <div id="current-player" class="player-info">
+                Current Player: <span id="player-symbol">X</span>
+            </div>
+            <div id="winner-message" class="winner-info hidden">
+                Winner: <span id="winner-symbol"></span>
+            </div>
+            <div id="draw-message" class="draw-info hidden">
+                It's a draw!
+            </div>
+        </div>
+
+        <div class="game-board" id="game-board">
+            {% for row in range(3) %}
+            <div class="board-row">
+                {% for col in range(3) %}
+                <div class="cell" data-row="{{ row }}" data-col="{{ col }}">
+                    <span class="cell-content"></span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="controls">
+            <button id="new-game-btn" class="btn btn-primary">New Game</button>
+            <button id="reset-btn" class="btn btn-secondary">Reset Game</button>
+        </div>
+
+        <div class="game-id">
+            Game ID: <span id="game-id-display">-</span>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
